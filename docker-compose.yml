@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  tutor-club:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Safe defaults for local testing
+      - DEMO_MODE=1
+      - COOKIE_SECURE=0
+    volumes:
+      - ./data:/var/data
+    restart: unless-stopped
